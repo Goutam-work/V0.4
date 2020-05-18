@@ -1,0 +1,49 @@
+export const INIT_SPORT = "INIT_SPORT";
+export const FETCH_SPORT_SUCCESS = "FETCH_SPORT_SUCCESS";
+export const FETCH_SPORT_FAIL = "FETCH_SPORT_FAIL";
+export const SELECT_SPORT = "SELECT_SPORT";
+export const EDIT_SPORT_CART = "EDIT_SPORT_CART";
+
+export const INIT_ARENA = "INIT_ARENA";
+export const FETCH_ARENA_SUCCESS = "FETCH_ARENA_SUCCESS";
+export const FETCH_ARENA_FAIL = "FETCH_ARENA_FAIL";
+export const SELECT_ARENA = "SELECT_ARENA";
+export const EDIT_ARENA_CART = "EDIT_ARENA_CART";
+export const ON_COURT_SELECT_ARENA = "ON_COURT_SELECT_ARENA";
+
+export const INIT_COURT = "INIT_COURT";
+export const FETCH_COURT_SUCCESS = "FETCH_COURT_SUCCESS";
+export const FETCH_COURT_FAIL = "FETCH_COURT_FAIL";
+export const SELECT_COURT = "SELECT_COURT";
+export const EDIT_COURT_CART = "EDIT_COURT_CART";
+
+export const INIT_SLOT = "INIT_SLOT";
+export const FETCH_SLOT_SUCCESS = "FETCH_SLOT_SUCCESS";
+export const FETCH_SLOT_FAIL = "FETCH_SLOT_FAIL";
+export const SELECT_SLOT = "SELECT_SLOT";
+export const DE_SELECT_SLOT = "DE_SELECT_SLOT";
+export const CLEAR_SLOTS = "CLEAR_SLOTS";
+export const SET_EDIT_SLOT = "SET_EDIT_SLOT";
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const DELETE_CART = "DELETE_CART";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const EDIT_CART_ITEM = "EDIT_CART_ITEM";
+export const SET_CART_ITEM = "SET_CART_ITEM";
+
+export const INIT_LOGIN = "INIT_LOGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+
+export const IS_LOG_IN = "IS_LOG_IN";
+export const LOGOUT = "LOGOUT";
+export const REGISTER = "REGISTER";
+export const SET_AUTH_RETURN_ROUTE = "SET_AUTH_RETURN_ROUTE";
+export const SET_LOGIN_MODAL = "SET_LOGIN_MODAL";
+
+export const CLEAR_SPORT = "CLEAR_SPORT";
+export const CLEAR_ARENA = "CLEAR_ARENA";
+export const CLEAR_COURT = "CLEAR_COURT";

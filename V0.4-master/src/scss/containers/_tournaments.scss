@@ -1,0 +1,34 @@
+.tournaments-section-header {
+  &:after {
+    @extend %section-header-shared;
+  }
+}
+.card-sp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #c4c4c4;
+  &:nth-last-child(1) {
+    border: none;
+  }
+  &:nth-child(1) {
+    color: #0db56b;
+  }
+}
+#card-btn-register {
+  background-color: #0db56b;
+  border-radius: 30px;
+  color: #fff;
+}
+#card-btn {
+  background-color: #0db56b;
+  border-radius: 30px;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-sp {
+    margin: 10px 0;
+    border: none;
+  }
+}

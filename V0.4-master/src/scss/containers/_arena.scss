@@ -1,0 +1,27 @@
+.card-name {
+    color: #0C9458;
+    text-decoration: none;
+    &:hover {
+        color: darken(#0C9458, 10%);
+        text-decoration: none;
+    }
+}
+
+.all-arena-section-header {
+    &:after {
+        @extend %section-header-shared
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #arena-list {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 360px) {
+    #arena-list {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

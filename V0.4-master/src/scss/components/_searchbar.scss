@@ -1,0 +1,25 @@
+::-webkit-inner-spin-button {
+    display: none;
+}
+.searchbar-holder {
+    background-color: #F8F8F8;
+    form {
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        
+        input, select {
+            background: transparent;
+            box-sizing: border-box;
+            border-width: 0 1px;
+            border-style: solid;
+            border-color: #C4C4C4;
+            border-radius: 0;
+            padding: 0 20px;
+            width: 200px;
+            &:focus {
+                background-color: transparent;
+            }
+        }
+    }
+}

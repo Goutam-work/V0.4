@@ -1,0 +1,25 @@
+.partner-page {
+  .partner-section-header {
+    &:after {
+      @extend %section-header-shared;
+    }
+  }
+  label {
+    color: #008349;
+    font-size: 1.25rem;
+  }
+  .custom-control-label {
+    color: #000;
+    font-size: 1rem;
+  }
+
+  .form-group {
+    margin: 40px 0;
+  }
+
+  #submit-form {
+    background-color: #0db56b;
+    color: #fff;
+    border-radius: 30px;
+  }
+}

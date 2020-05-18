@@ -1,0 +1,7 @@
+.about-page {
+  .about-us-header {
+    &:after {
+      @extend %section-header-shared;
+    }
+  }
+}

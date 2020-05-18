@@ -1,0 +1,21 @@
+.modal-footer-elements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#login-button,
+#register-button,
+#forgot-button {
+  background-color: #0db56b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.modal-tab-nav {
+  cursor: pointer;
+}
+
+.login-tab-active {
+  border-bottom: 4px solid #0db56b;
+}

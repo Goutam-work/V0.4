@@ -1,0 +1,40 @@
+.navigation {
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+    margin: 0 0.875rem;
+    &:nth-child(1) {
+        margin-left: 0;
+    }
+}
+.cart-icon {
+    margin-right: 50px;
+}
+.user-name {
+    margin: 0 20px 0 10px;
+}
+.dropdown-menu-button {
+    border-color: #C4C4C4;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 0 1px 0 1px;
+}
+
+@media only screen and (max-width: 992px) {
+    .nav-item {
+        margin: 5px 0;
+    }
+    .cart-icon {
+        &:after {
+            content: "MY CART";
+            color: black;
+            text-decoration: none;
+            padding-left: 5px;
+        }
+    }
+    .dropdown-menu-button {
+        margin:  0px 0 5px -10px;
+        border: none;
+        padding: 0;
+    }
+}

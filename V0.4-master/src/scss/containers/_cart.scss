@@ -1,0 +1,30 @@
+.my-cart-header {
+  &:after {
+    @extend %section-header-shared;
+    width: 20%;
+  }
+}
+.cart-element {
+  margin: 20px 0;
+}
+
+.total-price {
+  font-size: 1.25rem;
+  color: #008349;
+}
+.total-cost {
+  font-size: 1.25rem;
+}
+.card-footer {
+  background-color: #fff !important;
+}
+
+#checkout-btn,
+#cart-btn-delete,
+#cart-btn-edit,
+#clear-cart {
+  background-color: #0db56b;
+  border-radius: 30px;
+  color: #fff;
+  border: none;
+}
