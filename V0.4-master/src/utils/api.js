@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 
 export const API = axios.create({
-  baseURL: "http://54.185.204.216/api/",
+  baseURL: "http://localhost:3000/api/",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded"
   }
