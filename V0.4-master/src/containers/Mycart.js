@@ -71,6 +71,7 @@ class Mycart extends React.Component {
           sport={element["sportName"]}
           arena={element["arenaName"]}
           slots={slots_list}
+          bookingDate={element["bookingDate"]}
           edit={() => this.editCartItemHandler(element)}
           remove={() => removeFromCart(element.cartId)}
         />
@@ -82,6 +83,7 @@ class Mycart extends React.Component {
     const { isAuthenticated, data, setLoginModal } = this.props;
     if (isAuthenticated) {
       alert(data.join("\n"));
+      console.log(data);
     } else {
       setLoginModal(true);
       alert("You're not authenticated");

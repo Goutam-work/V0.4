@@ -10,7 +10,8 @@ const initialState = {
   data: null,
   selectedSlots: [],
   total: 0,
-  totalDisplay: {}
+  totalDisplay: {},
+  selectedDate: new Date().toISOString().slice(0,10)
 };
 
 //# HERE IS THE REDUCER OR CASE'S
@@ -32,6 +33,8 @@ const slotReducer = (state = initialState, { type, payload }) => {
       return clearSlot(state, payload);
     case actionTypes.SET_EDIT_SLOT:
       return setEditSlot(state, payload);
+    case actionTypes.SET_DATE:
+      return setDate(state, payload);
     default:
       return state;
   }
@@ -134,6 +137,12 @@ const slotsFail = (state, payload) => {
     loaded: false,
     loading: false,
     error: payload.error
+  });
+};
+
+const setDate = (state, payload) => {
+  return updateObject(state, {
+    selectedDate: payload.data
   });
 };
 

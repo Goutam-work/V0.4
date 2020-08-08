@@ -18,6 +18,10 @@ export default class CartElement extends React.Component {
                 <b>Arena:</b>
               </h5>
               <span className="arena-name">{this.props.arena}</span>
+              <h5>
+                <b>Date:</b>
+              </h5>
+              {this.props.bookingDate}
             </Col>
             <Col md={{ size: 3, order: 3 }} sm={{ size: 6, order: 4 }} xs="12">
               <h5>

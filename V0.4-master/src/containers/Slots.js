@@ -76,13 +76,33 @@ class Slots extends React.Component {
     });
   };
 
+  onDateChange = e => {
+    let newDate = e.nativeEvent.target.value;
+    this.props.setDate(newDate);
+    this.setState({
+      onOptionChanges: true
+    });
+    // const query = {
+    //   courtId: this.props.selectedCourt,
+    //   bookingDate:this.props.selectedDate
+    // };
+    // this.props.clearSlots();
+    // this.props.fetchSlots(query);
+    // this.setState({
+    //   onOptionChanges: false
+    // });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const query = {
-      courtId: this.props.selectedCourt
+      courtId: this.props.selectedCourt,
+      bookingDate:this.props.selectedDate
     };
     this.props.clearSlots();
     this.props.fetchSlots(query);
+    let datetime = this.props.selectedDate;
+    this.props.setDate(datetime);
     this.setState({
       onOptionChanges: false
     });
@@ -105,7 +125,8 @@ class Slots extends React.Component {
       selectedArena,
       selectedArenaName,
       selectedCourt,
-      selectedCourtName
+      selectedCourtName,
+      selectedDate
     } = this.props;
     if (!editCartId) {
       if (!this.props.loadedSports) {
@@ -123,7 +144,14 @@ class Slots extends React.Component {
       }
       if (!this.props.loadedSlots) {
         console.log(selectedCourt, "----------[componentMount-slot]");
-        this.props.fetchSlots({ courtId: selectedCourt });
+        this.props.fetchSlots({ courtId: selectedCourt,
+                                bookingDate: selectedDate});
+      }
+      if (!this.props.selectedDate) {
+        console.log(selectedDate, "----------[componentMount-date]");
+        let datetime = new Date();
+        datetime = datetime.toISOString().slice(0,10);
+        this.props.setDate(datetime);
       }
     } else {
       const {
@@ -154,9 +182,9 @@ class Slots extends React.Component {
       selectedSlot,
       editCartStore,
       editData,
+      selectedDate,
       courts
     } = this.props;
-    console.log(selectedSlot, typeof selectedSlot);
     let message = [];
     let checkValid = true;
     checkValid = checkValid && selectedCourt ? true : false;
@@ -169,12 +197,10 @@ class Slots extends React.Component {
     if (!slotsTotalDisplay) message.push("invalid Total Display");
     checkValid = checkValid && selectedSlot.length > 0 ? true : false;
     if (!selectedSlot.length > 0) message.push("invalid Slots");
-    // console.log(slotsTotalCost, slotsTotalDisplay, selectedSlot);
+    
     const getSportId = courts.find(element => {
       return element.court_id === selectedCourt;
     });
-    console.log("sport --", selectedSport);
-    console.log("sport --", getSportId.sports_id);
 
     if (checkValid) {
       if (this.props.editCartId) {
@@ -189,7 +215,7 @@ class Slots extends React.Component {
           slots: selectedSlot,
           total: slotsTotalCost,
           totalDisplay: slotsTotalDisplay,
-          date: Date.now()
+          bookingDate: selectedDate
         };
         editCartStore(obj);
         console.log("obj", obj);
@@ -204,7 +230,8 @@ class Slots extends React.Component {
           courtName: selectedCourtName,
           slots: selectedSlot,
           total: slotsTotalCost,
-          totalDisplay: slotsTotalDisplay
+          totalDisplay: slotsTotalDisplay,
+          bookingDate: selectedDate
         };
         this.props.addCart(obj);
       }
@@ -234,7 +261,8 @@ class Slots extends React.Component {
       slotsTotalDisplay,
       selectedArena,
       selectedSport,
-      selectedCourt
+      selectedCourt,
+      selectedDate
     } = this.props;
     //#  HERE LIST OF SPORTS OPTION FOR DROPDOWN
     const sportOptionList =
@@ -399,6 +427,8 @@ class Slots extends React.Component {
                   id="bookingDate"
                   className="px-4"
                   placeholder="date"
+                  onChange={this.onDateChange}
+                  value={selectedDate}
                 />
               </Col>
             </FormGroup>
@@ -463,6 +493,7 @@ const mapStateToProps = ({
     loadingSlots: slotReducer.loading,
     errorSlots: slotReducer.error,
     selectedSlot: slotReducer.selectedSlots,
+    selectedDate: slotReducer.selectedDate,
 
     editCartId: cartReducer.editCartId,
     editData: cartReducer.editData
@@ -480,6 +511,7 @@ const mapDispatchToProps = dispatch => {
     setCourt: id => dispatch(actionCreators.selectCourt(id)),
     setSlot: obj => dispatch(actionCreators.selectSlot(obj)),
     unSetSlot: obj => dispatch(actionCreators.deSelectSlot(obj)),
+    setDate: datetime => dispatch(actionCreators.setDate(datetime)),
     clearSlots: () => dispatch(actionCreators.clearSlots()),
     clearArena: () => dispatch(actionCreators.clearArena()),
     clearCourt: () => dispatch(actionCreators.clearCourt()),

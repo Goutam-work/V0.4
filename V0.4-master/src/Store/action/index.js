@@ -42,5 +42,6 @@ export {
   selectSlot,
   deSelectSlot,
   clearSlots,
-  setEditSlot
+  setEditSlot,
+  setDate
 } from "./slotAction";

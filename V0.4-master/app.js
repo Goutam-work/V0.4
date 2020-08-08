@@ -26,7 +26,7 @@ var loggedInCheck = require('./middleware/isLoggedIn');
 var uiRoutes = require('./api/routes/ui');
 
 var app = express();
-app.use(cors({origin : 'http://54.185.204.216/',credentials: true}));
+app.use(cors({origin : 'http://localhost:3000/',credentials: true}));
 
 //Run config inside wepack 
 /*const compiler = webpack(config);
@@ -54,7 +54,8 @@ app.use("/api/ui", uiRoutes);
 
 
 app.use(function (req, res, next) {
-  next(createError(404));
+  //next(createError(404));
+  res.redirect('/?valid=' + req.path);
 });
 
 // error handler

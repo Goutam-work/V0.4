@@ -13,7 +13,7 @@ exports.getArena =(req,res) => {
    }
     sportsModel.getArena(req.body.sport,req.body.dateofbooking,req.body.locality)
     .then( data => {
-        console.log(data);
+        //console.log(data);
         res.status(200).json({
             status:true,
             data:data
@@ -29,7 +29,7 @@ exports.getArena =(req,res) => {
 };
 
 exports.getCourts =(req,res) => {
-
+    console.log(req.body);
     if(req.body.sports_id == undefined){
      req.body.sports_id =0;
     }
@@ -38,7 +38,6 @@ exports.getCourts =(req,res) => {
     }
      sportsModel.getCourts(req.body.sports_id,req.body.arena_id)
      .then( data => {
-         console.log(data);
          res.status(200).json({
              status:true,
              data:data
@@ -60,7 +59,7 @@ exports.getSportsArena =(req,res) => {
     }
      sportsModel.getSportsArena(req.body.arena_id)
      .then( data => {
-         console.log(data);
+         //console.log(data);
          res.status(200).json({
              status:true,
              data:data
@@ -85,7 +84,7 @@ exports.getCourtSlots =(req,res) => {
     }
     sportsModel.getCourtSlots(req.body.court_id,req.body.book_date)
     .then( data => {
-        console.log(data);
+        //console.log(data);
         res.status(200).json({
             status:true,
             data:data

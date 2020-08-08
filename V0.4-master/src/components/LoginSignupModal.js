@@ -222,7 +222,7 @@ class LoginSignupModal extends React.Component {
                         <Label for="register_email">Email: </Label>
                         <Input
                           type="email"
-                          name="singupEmail"
+                          name="signupEmail"
                           id="signup_email"
                           value={this.state.signupEmail}
                           onChange={this.registerInputHandler}

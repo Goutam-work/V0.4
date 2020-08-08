@@ -5,7 +5,7 @@ import axios from "axios";
 import qs from "qs";
 // import cookies from "js-cookies";
 
-axios.defaults.baseURL = "http://54.185.204.216/";
+axios.defaults.baseURL = "http://localhost:3000";
 
 // const checkCookie = () => {
 //   if (cookies.getItem("token") !== null) {

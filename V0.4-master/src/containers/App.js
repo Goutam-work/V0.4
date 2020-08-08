@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect , useHistory} from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreator from "../Store/action/index";
 import "../scss/main.scss";
@@ -19,29 +19,34 @@ import Mycart from "./Mycart";
 import LoginSignupModal from "../components/LoginSignupModal";
 
 class App extends React.Component {
+
   componentDidMount() {
     const { isLogined } = this.props;
     isLogined();
   }
   render() {
     const { isAuthenticated } = this.props;
+    let routes = (
+      <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/arena" component={Arena} />
+          <Route path="/about" component={About} />
+          <Route path="/slots" component={Slots} />
+          <Route path="/court" component={Court} />
+          <Route path="/cart" component={Mycart} />
+          {!isAuthenticated ? (
+            <Route path="/login" component={LoginSignupModal} />
+          ) : null}
+          <Route path="/partner" component={Partner} />
+          <Route path="/tournaments" component={Tournaments} />
+          <Redirect to='/'/>
+        </Switch>
+    );
     return (
       <div className="wrapper d-flex flex-column sticky-footer-wrapper">
         <Navigation />
         <div className="flex-fill">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/arena" component={Arena} />
-            <Route path="/about" component={About} />
-            <Route path="/slots" component={Slots} />
-            <Route path="/court" component={Court} />
-            <Route path="/cart" component={Mycart} />
-            {!isAuthenticated ? (
-              <Route path="/login" component={LoginSignupModal} />
-            ) : null}
-            <Route path="/partner" component={Partner} />
-            <Route path="/tournaments" component={Tournaments} />
-          </Switch>
+          {routes}
         </div>
         <Footer />
         {!isAuthenticated ? <LoginSignupModal /> : null}

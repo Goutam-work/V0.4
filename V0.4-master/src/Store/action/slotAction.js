@@ -26,7 +26,8 @@ export const initSlotAsync = (params, selectedSlots) => {
   //# RETURN ALL
 
   const query = {
-    court_id: params && params.courtId ? parseInt(params.courtId) : 0
+    court_id: params && params.courtId ? parseInt(params.courtId) : 0,
+    book_date: params && params.bookingDate ? params.bookingDate : new Date().toISOString().slice(0,10)
   };
   return (dispatch, getState) => {
     //# HERE MAKE ASYNC CALLS.
@@ -83,6 +84,13 @@ export const clearSlots = slot => {
 export const setEditSlot = data => {
   return {
     type: actionTypes.SET_EDIT_SLOT,
+    payload: { data }
+  };
+};
+
+export const setDate = data => {
+  return {
+    type: actionTypes.SET_DATE,
     payload: { data }
   };
 };

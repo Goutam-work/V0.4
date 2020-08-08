@@ -10,6 +10,12 @@ import { Container, Row, Col } from "reactstrap";
 
 class Home extends React.Component {
   componentDidMount() {
+    const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get('valid');
+      if(myParam){
+        this.props.history.push(myParam);
+      }
+
     if (!this.props.loadedSports) {
       this.props.fetchSports();
     }

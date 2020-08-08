@@ -27,7 +27,7 @@ class CourtCard extends React.Component {
             <h4 className="court-name">{this.props.courtName}</h4>
 
             <CardSubtitle>{this.props.sportName}</CardSubtitle>
-            <CardSubtitle className="text-secondary">Book Now ></CardSubtitle>
+            <CardSubtitle className="text-secondary">Book Now</CardSubtitle>
           </CardBody>
         </Link>
       </Card>

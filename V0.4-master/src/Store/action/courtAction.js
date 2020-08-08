@@ -26,9 +26,9 @@ export const initCourtAsync = (params, obj) => {
   //# RETURN ALL
   const query = {
     arena_id: params && params.arenaId ? parseInt(params.arenaId) : 0,
-    sport: params && params.sportId ? parseInt(params.sportId) : 0
+    sports_id: params && params.sportId ? parseInt(params.sportId) : 0
   };
-  // console.log("court[---]", query);
+  
   return (dispatch, getState) => {
     //# HERE MAKE ASYNC CALLS.
     dispatch(initCourt());

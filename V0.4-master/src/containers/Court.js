@@ -32,6 +32,13 @@ class Court extends React.Component {
     // };
     // this.props.fetchCourts(query);
   };
+
+  onDateChange = e => {
+    let newDate = e.nativeEvent.target.value;
+    this.props.setDate(newDate);
+  };
+
+
   handleSubmit = e => {
     e.preventDefault();
     const query = {
@@ -47,6 +54,12 @@ class Court extends React.Component {
     }
     if (!this.props.loadedArenas) {
       this.props.fetchArenas();
+    }
+    if (!this.props.selectedDate) {
+      console.log(selectedDate, "----------[componentMount-date]");
+      let datetime = new Date();
+      datetime = datetime.toISOString().slice(0,10);
+      this.props.setDate(datetime);
     }
     // loadedCourts
     if (true) {
@@ -65,7 +78,8 @@ class Court extends React.Component {
       selectedArena,
       selectedSport,
       sports,
-      loadedSports
+      loadedSports,
+      selectedDate
     } = this.props;
     //#  HERE LIST OF SPORTS OPTION FOR DROPDOWN
     const sportOptionList =
@@ -137,6 +151,8 @@ class Court extends React.Component {
                   id="bookingDate"
                   className="px-4"
                   placeholder="date"
+                  onChange={this.onDateChange}
+                  value={selectedDate}
                 />
               </Col>
             </FormGroup>
@@ -152,7 +168,7 @@ class Court extends React.Component {
   }
 }
 
-const mapStateToProps = ({ sportReducer, arenaReducer, courtReducer }) => {
+const mapStateToProps = ({ sportReducer, arenaReducer, courtReducer ,slotReducer}) => {
   return {
     sports: sportReducer.data,
     loadedSports: sportReducer.loaded,
@@ -166,7 +182,9 @@ const mapStateToProps = ({ sportReducer, arenaReducer, courtReducer }) => {
 
     courts: courtReducer.data,
     loadedCourts: courtReducer.loaded,
-    selectedCourt: courtReducer.selectedCourt
+    selectedCourt: courtReducer.selectedCourt,
+
+    selectedDate: slotReducer.selectedDate
   };
 };
 
@@ -176,6 +194,7 @@ const mapDispatchToProps = dispatch => {
     fetchArenas: query => dispatch(actionCreators.initArenaAsync({ query })),
     fetchCourts: query => dispatch(actionCreators.initCourtAsync(query)),
     setArena: obj => dispatch(actionCreators.selectArena(obj)),
+    setDate: datetime => dispatch(actionCreators.setDate(datetime)),
     setSport: obj => dispatch(actionCreators.selectSport(obj))
   };
 };

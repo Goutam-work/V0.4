@@ -24,6 +24,7 @@ export const SELECT_SLOT = "SELECT_SLOT";
 export const DE_SELECT_SLOT = "DE_SELECT_SLOT";
 export const CLEAR_SLOTS = "CLEAR_SLOTS";
 export const SET_EDIT_SLOT = "SET_EDIT_SLOT";
+export const SET_DATE = "SET_DATE";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const DELETE_CART = "DELETE_CART";
